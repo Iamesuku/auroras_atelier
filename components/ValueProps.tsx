@@ -1,0 +1,6 @@
+import { Sparkles, KeyRound, Layers3, Timer } from "lucide-react";
+import { services } from "@/data/content";
+import { motion } from "framer-motion";
+
+const icons = { sparkles: Sparkles, key: KeyRound, layers: Layers3, timer: Timer };
+export default function ValueProps() { return <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }} viewport={{ once: true }} className="border-b border-white/10 bg-[#191615] px-6 lg:px-10"><div className="mx-auto grid max-w-[1440px] grid-cols-2 divide-x divide-white/10 lg:grid-cols-4">{services.map((service, index) => { const Icon = icons[service.icon]; return <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }} viewport={{ once: true }} key={service.title} className="flex items-center gap-3 px-4 py-7 first:pl-0 last:pr-0 lg:justify-center"><Icon size={19} strokeWidth={1} className="shrink-0 text-[#B89778]" /><div><p className="text-[10px] tracking-[0.14em] text-[#F5F2EB]">{service.title}</p><p className="mt-1 text-[10px] text-[#A99F95]">{service.description}</p></div></motion.div>; })}</div></motion.section>; }
